@@ -29,7 +29,7 @@ func (app *application) mount() http.Handler {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 	r.Use(cors.Handler(cors.Options{
-		AllowedOrigins: []string{"http://localhost:3030"},
+		AllowedOrigins: []string{"http://*"},
 		AllowedMethods: []string{"GET"},
 		AllowedHeaders: []string{"Content-Type"},
 	}))
