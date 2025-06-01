@@ -17,10 +17,6 @@ export default function UserFetcher(){
         })
     }, [])
 
-    if (loading) return <p>Loading user data...</p>
-    return <div>
-      <h2>Fetched Users</h2>
-      <pre>{JSON.stringify(users, null, 2)}</pre> {/* 👈 inspect raw data here */}
-    </div>
+    return {users, loading}
 
 }
