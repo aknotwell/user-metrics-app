@@ -10,6 +10,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/cors"
 )
 
 type application struct {
@@ -27,15 +28,19 @@ func (app *application) mount() http.Handler {
 	r.Use(middleware.RealIP)
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
-
+	r.Use(cors.Handler(cors.Options{
+		AllowedOrigins: []string{"http://localhost:3030"},
+		AllowedMethods: []string{"GET"},
+		AllowedHeaders: []string{"Content-Type"},
+	}))
 	// Set a timeout value on the request context (ctx), that will signal
 	// through ctx.Done() that the request has timed out and further
 	// processing should be stopped.
 	r.Use(middleware.Timeout(60 * time.Second))
 
-	r.Route("/v1", func(r chi.Router) {
+	r.Route("/api", func(r chi.Router) {
 		r.Get("/health", app.healthCheckHandler)
-		r.Get("/userData", app.getUserDataHandler)
+		r.Get("/users", app.getUserDataHandler)
 	})
 
 	return r
