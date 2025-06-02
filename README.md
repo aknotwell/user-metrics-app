@@ -9,8 +9,7 @@ Prerequisites:
 ### 1. Install dependencies.
 After cloning the repo, you can run:
 ```
-cd user-metrics-app
-cd backend 
+cd user-metrics-app/backend
 go mod tidy
 ```
 This will install all necessary dependencies.
