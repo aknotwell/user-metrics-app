@@ -13,7 +13,7 @@ cd user-metrics-app/backend
 go mod tidy
 ```
 This will install all necessary dependencies.
-## 2. Start the server.
+### 2. Start the server.
 You need to be in the correct folder to start the server, which is located in `/backend/cmd/api`. \
 To get there, you can run `cd cmd/api`. <br/>
 
