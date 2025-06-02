@@ -18,7 +18,7 @@ export default function UserTable() {
     days_since_pwd_change: '',
     last_access_date: '',
     days_since_last_access: '',
-    mfa_enabled: ''
+    mfa_enabled:null,
     })
 
     const keys = ['name', 'create_date', 'password_changed_date', 'days_since_pwd_change', 'last_access_date', 'days_since_last_access', 'mfa_enabled']
@@ -32,8 +32,15 @@ export default function UserTable() {
         if(!filterVal) return true // If filter is empty, don't apply a filter, return.
         const userVal = (u[k] ?? '').toString() 
         if(k === 'mfa_enabled'){
-            const isEnabled = u.mfa_enabled === true
-            return filterVal ? isEnabled : !isEnabled // returning !isEnabled handles the "No" case.
+            if(filterVal === '' || filterVal === 'All') return true
+           const mfa_enabled = u.mfa_enabled === true
+           if(filterVal === 'Yes'){
+            return mfa_enabled
+           }
+           else{
+            return !mfa_enabled
+           }
+            // returning !isEnabled handles the "No" case.
         }
             return userVal.includes(filterVal)
     }))    
@@ -71,8 +78,8 @@ export default function UserTable() {
                     className= {header_style}
                 >
                 <option value="">All</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
                 </select>
                 ) : (
                 <input
