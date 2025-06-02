@@ -39,12 +39,12 @@ Run: `npm run dev`. The React app will then start on `http://localhost:5173`. Th
   ### Tradeoffs
     - No error handling.
     - No authentication for GET requests.
-    -  CORS allows `http://*`, meaning all connections are allowed, not just the one I want.
+    -  CORS allows `http://*`, all addresses are allowed instead of explicitly chosen ones. 
 ## Frontend 
 - Built with React, using [tailwindcss](https://tailwindcss.com/) to do styling and [Vite](https://vite.dev/guide/) to speed up development.
-- Conditional Highlighting.
+- Conditional highlighting.
 - Custom data fetching, abstract API calls.
 - Stateful filtering.
   ### Tradeoffs
   - No data validation.
-  - Every row is re-rendered on every change in the filter. 
+  - Rows are re-rendered on every filter change.  
