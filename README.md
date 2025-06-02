@@ -1,10 +1,26 @@
 # User Metric App for Strato-Cloud
 Note: This app was created in a macOS environment.
-# Set up 
+
 Prerequisites:
 - [Go](https://go.dev/doc/install)
 - [Node](https://nodejs.org/en/download)
 - [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (installed alongside Node)
+
+
+# Set up (Using Makefile)
+## Run Makefile 
+If you want to skip the manual setup after cloning the repo, run this:
+```
+cd user-metrics-app
+make all
+```
+
+
+Want to start the server without reinstalling dependencies? Run this:
+`make server`
+
+# Set up (Manual)
+
 ## Backend
 ### 1. Install dependencies.
 After cloning the repo, you can run:
