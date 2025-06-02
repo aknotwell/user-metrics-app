@@ -7,7 +7,7 @@ export default function UserTable() {
 
     const cell = "px-4 py-2 text-sm text-white border border-white/10"
     const cell_highlighted = "px-4 py-2 text-sm text-white bg-red-500/30 border border-white/10"
-
+    const header_style = "px-4 py-2 text-left text-sm font-semibold text-white border border-white/10"
      const headers =  ['Name','Date Created', 'Date Password Changed','Days Since Password Changed', 'Last Access Date','Days Since Last Access', 'MFA Enabled',]
 
     // Start filtering 
@@ -54,7 +54,7 @@ export default function UserTable() {
           {headers.map((h, i) => (
             <th
               key={i}
-              className="px-4 py-2 text-left text-sm font-semibold text-white border border-white/10"
+              className= {header_style}
             >
               {h}
             </th>
@@ -64,11 +64,11 @@ export default function UserTable() {
           {keys.map((key,i) => (
             <th
                 key= {i}
-                className='px-4 py-2 text-left text-sm font-semibold text-white border border-white/10'>
+                className={header_style}>
                 { key === 'mfa_enabled' ? (<select
                     value= {filters[key]}
                     onChange= {e => handleFilterChange(key, e.target.value)}
-                    className="w-full px-2 py-1 bg-[#1e1e1e] text-white text-sm border border-white/20 rounded"
+                    className= {header_style}
                 >
                 <option value="">All</option>
                 <option value="yes">Yes</option>
@@ -79,7 +79,7 @@ export default function UserTable() {
                     type="text"
                     value={filters[key]}
                     onChange={e => handleFilterChange(key,e.target.value)}
-                    className="w-full px-2 py-1 bg-[#1e1e1e] text-white text-sm border border-white/20 rounded"
+                    className={header_style}
                     placeholder={"Filter by: " + headers[i]}
                 />
             )}
