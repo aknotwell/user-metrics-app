@@ -48,4 +48,4 @@ Run: `npm run dev`. The React app will then start on `http://localhost:5173`. Th
 - Stateful filtering.
   ### Tradeoffs
   - No data validation.
-  - 
+  - Every row is re-rendered on every change in the filter. 
